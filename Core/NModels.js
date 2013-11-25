@@ -6,8 +6,10 @@ function NModels() {
 };
 NModels.prototype = {
     DataBase: null,
+    dbname: 'db2',//暂时没有实现多数据库连接
     initialize: function () {
         var conn = require('../Data/DataBase');
+        //conn.DataBase.dbname = this.dbname;
         this.DataBase = conn.DataBase;
     },
     find: function (sql, values, callback) {
@@ -53,4 +55,4 @@ NModels.prototype = {
         });
     }
 };
-exports.NModels = new NModels();
+exports.nm = new NModels();

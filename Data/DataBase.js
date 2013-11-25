@@ -6,12 +6,15 @@ function DataBase() {
 };
 DataBase.prototype = {
     mysql: null,
-    _db: null,
     mysql_conn: null,
-    initialize: function () {
+    dbname: 'db',
+    initialize: function (_dbname) {
         this.mysql = require('mysql');
-        this._db = require('../Config/dbconfig');
-        this.mysql_conn = this.mysql.createConnection(this._db.dbconfig.db);
+        var _db = require('../Config/dbconfig');
+        if (_dbname) {
+            this.dbname = _dbname;
+        }
+        this.mysql_conn = this.mysql.createConnection(eval('_db.dbconfig.' + this.dbname));
     },
     query: function (sql, values, callback) {
         this.mysql_star();
@@ -21,7 +24,7 @@ DataBase.prototype = {
         }
         this.mysql_conn.query(sql, values, function (err, rows, fields) {
             if (err) {
-                this.mysql_err(err);
+                exports.DataBase.mysql_err(err);
             }
             callback(err, rows, fields);
         });
@@ -35,6 +38,7 @@ DataBase.prototype = {
         this.mysql_conn.end();
     },
     mysql_err: function (err) {
+        console.log(err);
         if (err.code === 'PROTOCOL_CONNECTION_LOST') {
             this.mysql_star();
         } else {
