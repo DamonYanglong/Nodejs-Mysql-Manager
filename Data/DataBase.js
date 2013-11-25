@@ -11,7 +11,7 @@ DataBase.prototype = {
     initialize: function () {
         this.mysql = require('mysql');
         this._db = require('../Config/dbconfig');
-        this.mysql_conn = this.mysql.createConnection(this._db.config);
+        this.mysql_conn = this.mysql.createConnection(this._db.dbconfig.db);
     },
     query: function (sql, values, callback) {
         this.mysql_star();
