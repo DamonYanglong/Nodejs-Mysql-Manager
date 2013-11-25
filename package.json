@@ -1,7 +1,11 @@
 {
-    "name": "DamonYang",
+    "name": "mysqlmanager",
     "version": "0.0.1",
     "homepage": "https://github.com/DamonYanglong/Nodejs-Mysql-Manager",
+    "author": {
+        "name": "DamonYanglong",
+        "email": "DamonYanglong@outlook.com"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/DamonYanglong/Nodejs-Mysql-Manager.git"
