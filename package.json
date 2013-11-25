@@ -1,0 +1,12 @@
+{
+    "name": "DamonYang",
+    "version": "0.0.1",
+    "homepage": "https://github.com/DamonYanglong/Nodejs-Mysql-Manager",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DamonYanglong/Nodejs-Mysql-Manager.git"
+    },
+    "dependencies": {
+        "mysql": "2.0.0-alpha9"
+    }
+}

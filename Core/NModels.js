@@ -37,7 +37,7 @@ NModels.prototype = {
             callback(err, results);
         });
     },
-    scalar: function (sql, values, callback) {
+    queryScalar: function (sql, values, callback) {
         if (typeof values === 'function') {
             callback = values;
             values = null;
